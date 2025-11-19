@@ -1,0 +1,51 @@
+.input-group {
+  position: relative;
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+.inputlabel {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--gray);
+}
+
+.location-input {
+  border-radius: 12px;
+  padding: 16px;
+  padding-left: 48px;
+  width: 360px;
+  height: 56px;
+  background: var(--inputs);
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--main);
+}
+.location-input::placeholder {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--gray);
+}
+
+.map-icon {
+  position: absolute;
+  left: 18px;
+  top: 60px;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: var(--button);
+  pointer-events: none;
+}
+
+.active {
+  fill: black;
+}
