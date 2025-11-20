@@ -1,0 +1,128 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 1440px;
+  padding: 48px 64px;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.vehicle-card-title {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  color: var(--main);
+  margin-bottom: 8px;
+}
+
+.vehicle-price {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  color: var(--main);
+  margin-top: 16px;
+}
+
+.gallety-list {
+  display: flex;
+  gap: 48px;
+}
+
+.gallety-item {
+  border-radius: 10px;
+  width: 292px;
+  height: 312px;
+  background-color: gray;
+}
+
+.vehicle-description {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--text);
+  margin-bottom: 28px;
+}
+
+.tabs-container {
+  display: flex;
+  gap: 40px;
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--main);
+}
+
+.filter-lines {
+  border: none;
+  height: 1px;
+  background: var(--gray-light);
+  margin: 24px 0;
+}
+
+.tabs-content {
+  display: flex;
+  gap: 40px;
+}
+
+.details-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 10px;
+  padding: 44px 52px;
+  width: 631px;
+  height: 588px;
+  background: var(--inputs);
+}
+
+.details-tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.details-tags-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 100px;
+  padding: 12px 18px;
+  height: 48px;
+  background: var(--badges);
+  mix-blend-mode: multiply;
+}
+
+.vehicle-detail-title {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--main);
+}
+
+.vehicle-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.vehicle-details-item {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+  color: var(--main);
+}

@@ -1,0 +1,23 @@
+.vehicle-rating {
+  display: flex;
+  gap: 16px;
+  width: 268px;
+  height: 24px;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--main);
+}
+
+.vehicle-rating-left {
+  display: flex;
+  align-items: anchor-center;
+  gap: 4px;
+}
+
+.vehicle-rating-right {
+  display: flex;
+  align-items: anchor-center;
+  gap: 4;
+}

@@ -1,0 +1,7 @@
+.vehicle-list-block {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 888px;
+  height: 1568px;
+}
