@@ -1,0 +1,23 @@
+.containerNotfound {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.description {
+  display: flex;
+  font-size: 18px;
+  color: #444444;
+  line-height: 28px;
+  margin: 0 auto;
+  margin-bottom: 16px;
+}

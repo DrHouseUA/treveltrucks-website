@@ -1,7 +1,7 @@
 .vehicle-rating {
   display: flex;
   gap: 16px;
-  width: 268px;
+
   height: 24px;
   font-family: var(--font-family);
   font-weight: 400;
@@ -11,9 +11,20 @@
 }
 
 .vehicle-rating-left {
+  position: relative;
   display: flex;
   align-items: anchor-center;
   gap: 4px;
+}
+
+.vehicle-rating-left::after {
+  content: "";
+  position: absolute;
+  top: 21px;
+  bottom: 2px;
+  left: 20px; /* лінія праворуч */
+  width: 85%; /* товщина «бордера» */
+  background: rgb(0, 0, 0);
 }
 
 .vehicle-rating-right {

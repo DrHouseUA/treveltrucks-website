@@ -1,0 +1,36 @@
+.tabs-container {
+  display: flex;
+  gap: 40px;
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--main);
+}
+
+.filter-lines {
+  border: none;
+  height: 1px;
+  background: var(--gray-light);
+  margin: 24px 0;
+}
+
+.tabs-content {
+  display: flex;
+  gap: 40px;
+}
+
+.tab {
+  position: relative;
+  cursor: pointer;
+}
+
+.active-tab::after {
+  content: "";
+  position: absolute;
+  top: 46px;
+  bottom: -27px;
+  right: 0; /* лінія праворуч */
+  width: 100%; /* товщина «бордера» */
+  background: red;
+}

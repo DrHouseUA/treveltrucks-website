@@ -1,0 +1,43 @@
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.vehicle-card-title {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  color: var(--main);
+  margin-bottom: 8px;
+}
+
+.vehicle-price {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  color: var(--main);
+  margin-top: 16px;
+}
+
+.gallety-list {
+  display: flex;
+  gap: 48px;
+}
+
+.gallety-item {
+  border-radius: 10px;
+  width: 292px;
+  height: 312px;
+}
+
+.vehicle-description {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--text);
+  margin-bottom: 28px;
+}

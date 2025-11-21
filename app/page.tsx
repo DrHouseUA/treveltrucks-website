@@ -20,12 +20,12 @@ export default function Home() {
             <button
               className={styles["btn-view-now"]}
               onClick={() => {
-                router.push("/catalogue");
+                router.push("/catalog");
               }}
             >
               View Now
             </button>
-            <Link href="/catalogue" className={styles.link}>
+            <Link href="/catalog" className={styles.link}>
               Go to Catalogue Page
             </Link>
           </div>

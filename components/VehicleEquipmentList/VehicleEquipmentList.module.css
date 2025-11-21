@@ -44,6 +44,10 @@
   cursor: pointer;
 }
 
+.selected {
+  border: 1px solid var(--button);
+}
+
 .vehicle-block {
   width: 360px;
 }
