@@ -22,15 +22,19 @@
   margin-top: 16px;
 }
 
-.gallety-list {
+.gallery-list {
   display: flex;
   gap: 48px;
 }
 
-.gallety-item {
+.gallery-item {
   border-radius: 10px;
   width: 292px;
   height: 312px;
+}
+
+.vehicle-img {
+  object-fit: cover;
 }
 
 .vehicle-description {

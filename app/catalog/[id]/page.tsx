@@ -13,7 +13,7 @@ export default async function DetailPage({ params }: Props) {
     <main className={styles["main-container"]}>
       <VehicleDescription id={id} />
       <div>
-        <TabsInDetails />
+        <TabsInDetails id={id} />
       </div>
     </main>
   );

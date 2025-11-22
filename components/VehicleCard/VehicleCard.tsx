@@ -6,27 +6,11 @@ import RatingInfo from "../RatingInfo/RatingInfo";
 import styles from "./VehicleCard.module.css";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import CategoriesList from "../CategoriesList/CategoriesList";
 
 interface VehicleCardProps {
   vehicle: Vehicle;
 }
-
-// Мапа відповідностей: ключ = назва булевої властивості
-const featureIcons: Partial<
-  Record<keyof Vehicle, { src: string; label: string }>
-> = {
-  engine: { src: "/fuel-pump.svg", label: "Petrol" },
-  transmission: { src: "/diagram.svg", label: "Automatic" },
-  kitchen: { src: "/cup-hot.svg", label: "Kitchen" },
-  AC: { src: "/wind.svg", label: "AC" },
-  bathroom: { src: "/ph_shower.svg", label: "Bathroom" },
-  TV: { src: "/tv.svg", label: "TV" },
-  radio: { src: "/radio.svg", label: "Radio" },
-  refrigerator: { src: "/refrigerator.svg", label: "Refrigerator" },
-  microwave: { src: "/microwave.svg", label: "Microwave" },
-  gas: { src: "/gas-stove.svg", label: "Gas" },
-  water: { src: "/water.svg", label: "Water" },
-};
 
 export default function VehicleCard({ vehicle }: VehicleCardProps) {
   const router = useRouter();
@@ -72,67 +56,7 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
         </p>
 
         <div className={styles["vehicle-tags-container"]}>
-          <ul className={styles["vehicle-tags-list"]}>
-            {Object.entries(featureIcons).map(([key, { src, label }]) =>
-              vehicle[key as keyof Vehicle] ? (
-                <li key={key} className={styles["vehicle-tags-list-item"]}>
-                  <Icon
-                    src={src}
-                    width={20}
-                    height={20}
-                    alt={`${label} icon`}
-                  />
-                  {label}
-                </li>
-              ) : null
-            )}
-
-            {/* <li className={styles["vehicle-tags-list-item"]}>
-              <Icon
-                src="/fuel-pump.svg"
-                width={20}
-                height={20}
-                alt="Fuel-pump icon"
-              />
-              Petrol
-            </li>
-            <li className={styles["vehicle-tags-list-item"]}>
-              <Icon
-                src="/diagram.svg"
-                width={20}
-                height={20}
-                alt="Fuel-pump icon"
-              />
-              Automatic
-            </li>
-            <li className={styles["vehicle-tags-list-item"]}>
-              <Icon
-                src="/cup-hot.svg"
-                width={20}
-                height={20}
-                alt="Fuel-pump icon"
-              />
-              Kitchen
-            </li>
-            <li className={styles["vehicle-tags-list-item"]}>
-              <Icon
-                src="/wind.svg"
-                width={20}
-                height={20}
-                alt="Fuel-pump icon"
-              />
-              AC
-            </li>
-            <li className={styles["vehicle-tags-list-item"]}>
-              <Icon
-                src="/wind.svg"
-                width={20}
-                height={20}
-                alt="Fuel-pump icon"
-              />
-              AC
-            </li> */}
-          </ul>
+          <CategoriesList vehicle={vehicle} />
         </div>
         <button
           className={styles["btn-show-more"]}

@@ -14,14 +14,15 @@ interface Props {
 
 export default function VehicleDescription({ id }: Props) {
   const [vehicle, setVehicle] = useState<Vehicle | null>(null);
-  const { data, isLoading, isError } = useQuery({
+  const { data, isLoading, isError, refetch } = useQuery({
     queryKey: ["vehicle"],
-    queryFn: () => fetchVehicleById(id),
+    queryFn: async () => await fetchVehicleById(id),
     refetchOnMount: false,
   });
   useEffect(() => {
+    refetch();
     setVehicle(data as Vehicle);
-  }, [data]);
+  }, [data, refetch]);
 
   return (
     <div className={styles["main-content"]}>
@@ -39,38 +40,23 @@ export default function VehicleDescription({ id }: Props) {
         <p className={styles["vehicle-price"]}>€{vehicle?.price}.00</p>
       </div>
       <div>
-        <ul className={styles["gallety-list"]}>
-          {vehicle && vehicle.gallery.map(
-            (picture) => {return <><li className={styles["gallety-item"]}>
-    {/* //     <Image
-    //     className={styles["vehicle-img"]}
-    //     src={vehicle.gallery[0].thumb}
-    //     width={292}
-    //     height={320}
-    //     alt={vehicle.name}
-    //   ></Image> */}
-          </li>          </>
-          }
-          <li>
-            <div className={styles["gallety-item"]}></div>
-          </li>
-          <li>
-            <div className={styles["gallety-item"]}></div>
-          </li>
-          <li>
-            <div className={styles["gallety-item"]}></div>
-          </li>
-          <li>
-            <div className={styles["gallety-item"]}></div>
-          </li>
+        <ul className={styles["gallery-list"]}>
+          {vehicle &&
+            vehicle.gallery.map((picture, idx) => (
+              <li key={idx} className={styles["gallery-item"]}>
+                <Image
+                  className={styles["vehicle-img"]}
+                  src={picture.thumb}
+                  width={292}
+                  height={320}
+                  alt={vehicle.name}
+                />
+              </li>
+            ))}
         </ul>
       </div>
       <div className={styles["vehicle-description"]}>
-        Embrace simplicity and freedom with the Mavericks panel truck, an ideal
-        choice for solo travelers or couples seeking a compact and efficient way
-        to explore the open roads. This no-frills yet reliable panel truck
-        offers the essentials for a comfortable journey, making it the perfect
-        companion for those who value simplicity and functionality.
+        {vehicle?.description}
       </div>
     </div>
   );

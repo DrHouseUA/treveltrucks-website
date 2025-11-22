@@ -1,0 +1,19 @@
+.vehicle-tags-list {
+  width: 524px;
+  max-height: 160px;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.vehicle-tags-list-item {
+  display: flex;
+  align-items: anchor-center;
+  gap: 8px;
+  border-radius: 100px;
+  padding: 12px 18px;
+  height: 48px;
+  background: var(--badges);
+  mix-blend-mode: multiply;
+}

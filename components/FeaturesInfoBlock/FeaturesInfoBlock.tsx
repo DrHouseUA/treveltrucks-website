@@ -1,48 +1,19 @@
-import React from "react";
-import Icon from "../Icon/Icon";
-import styles from "./FeaturesInfoBlock.module.css";
+"use client";
 
-export default function FeaturesInfoBlock() {
+import React from "react";
+import styles from "./FeaturesInfoBlock.module.css";
+import CategoriesList from "../CategoriesList/CategoriesList";
+import { Vehicle } from "@/types/vehicle";
+
+interface Props {
+  vehicle: Vehicle;
+}
+
+export default function FeaturesInfoBlock({ vehicle }: Props) {
   return (
     <div className={styles["details-block"]}>
       <div className={styles["details-tags"]}>
-        <ul className={styles["details-tags-list"]}>
-          <li className={styles["details-tags-list-item"]}>
-            <Icon
-              src="/fuel-pump.svg"
-              width={20}
-              height={20}
-              alt="Fuel-pump icon"
-            />
-            Petrol
-          </li>
-          <li className={styles["details-tags-list-item"]}>
-            <Icon
-              src="/diagram.svg"
-              width={20}
-              height={20}
-              alt="Fuel-pump icon"
-            />
-            Automatic
-          </li>
-          <li className={styles["details-tags-list-item"]}>
-            <Icon
-              src="/cup-hot.svg"
-              width={20}
-              height={20}
-              alt="Fuel-pump icon"
-            />
-            Kitchen
-          </li>
-          <li className={styles["details-tags-list-item"]}>
-            <Icon src="/wind.svg" width={20} height={20} alt="Fuel-pump icon" />
-            AC
-          </li>
-          <li className={styles["details-tags-list-item"]}>
-            <Icon src="/wind.svg" width={20} height={20} alt="Fuel-pump icon" />
-            AC
-          </li>
-        </ul>
+        <CategoriesList vehicle={vehicle} />
       </div>
       <div>
         <h3 className={styles["vehicle-detail-title"]}>Vehicle details </h3>
@@ -51,27 +22,27 @@ export default function FeaturesInfoBlock() {
           <ul className={styles["vehicle-details-list"]}>
             <li className={styles["vehicle-details-item"]}>
               {" "}
-              <div>Form</div> <div>1</div>
+              <div>Form</div> <div>{vehicle.form}</div>
             </li>
             <li className={styles["vehicle-details-item"]}>
               <div>Length</div>
-              <div>1</div>
+              <div>{vehicle.length}</div>
             </li>
             <li className={styles["vehicle-details-item"]}>
               <div>Width</div>
-              <div>1</div>
+              <div>{vehicle.width}</div>
             </li>
             <li className={styles["vehicle-details-item"]}>
               <div>Height</div>
-              <div>1</div>
+              <div>{vehicle.height}</div>
             </li>
             <li className={styles["vehicle-details-item"]}>
               <div>Tank</div>
-              <div>1</div>
+              <div>{vehicle.tank}</div>
             </li>
             <li className={styles["vehicle-details-item"]}>
               <div>Consumption</div>
-              <div>1</div>
+              <div>{vehicle.consumption}</div>
             </li>
           </ul>
         </div>
