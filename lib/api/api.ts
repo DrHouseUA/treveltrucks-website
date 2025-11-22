@@ -25,7 +25,6 @@ export const fetchVehicles = async (
   params: VehicleParams,
   options?: { queryString: string }
 ): Promise<VehicleDataResponse> => {
-  console.log(params);
   const response = await apiClient.get<VehicleDataResponse>(
     `/campers?${options?.queryString}`,
     {

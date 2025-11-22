@@ -40,6 +40,10 @@
   transition: all 0.3s ease;
 }
 
+.btn-search:hover {
+  background: var(--button-hover);
+}
+
 .list-container {
   display: flex;
   flex-direction: column;
@@ -60,4 +64,29 @@
   line-height: 150%;
   letter-spacing: -0.01em;
   color: var(--main);
+  transition: all 0.3s ease;
+}
+
+.btn-load-more:hover {
+  border: 1px solid var(--button-hover);
+}
+
+.loading-wrapper {
+  position: absolute;
+
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+}
+
+.pattern-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 60px;
+  font-family: var(--font-family);
+  color: orange;
 }

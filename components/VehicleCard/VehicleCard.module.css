@@ -9,7 +9,7 @@
 
 .vehicle-img {
   border-radius: 10px;
-  object-fit: fill;
+  object-fit: cover;
 }
 
 .vehicle-info {
@@ -79,12 +79,21 @@
   gap: 4;
 }
 
+.vehicle-favorite-icon-wrapper {
+  cursor: pointer;
+}
+
 .vehicle-description {
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
   color: var(--text);
+}
+
+.vehicle-tags-container {
+  height: 104px;
+  overflow: hidden;
 }
 
 .vehicle-tags-list {
