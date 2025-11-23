@@ -11,6 +11,7 @@ import { useFilterConfigStore } from "@/lib/store/useFilterConfigStore";
 import { useQuery } from "@tanstack/react-query";
 import { Vehicle } from "@/types/vehicle";
 import { NxCirclesLoader } from "@ngeenx/nx-react-svg-loaders";
+import { useVehicleStore } from "@/lib/store/useVehickeListStore";
 
 export default function CatalogPage() {
   const { toogleFilter, toogleTransmission, setForm, clearFilters } =
@@ -23,11 +24,11 @@ export default function CatalogPage() {
   const form = useFilterConfigStore((state) => state.form);
 
   const [value, setValue] = useState("");
-  const [vehicles, setVehicles] = useState<Vehicle[]>([]);
+
+  const { vehicles, setVehicles } = useVehicleStore();
   const [page, setPage] = useState(1);
   const limit = 4;
 
-  // --- committedParams: використовуються тільки коли натиснули Search ---
   const [committedParams, setCommittedParams] = useState<{
     search: string;
     form: string | null;
@@ -97,17 +98,17 @@ export default function CatalogPage() {
         : Promise.resolve({ items: [], total: 0 }),
     enabled: committedParams !== null,
     refetchOnMount: true,
-    // placeholderData: (prev) => prev,
   });
 
   const total = data?.total ?? 0;
   const totalPage = Math.ceil(total / limit);
 
   useEffect(() => {
-    const items = data?.items ?? [];
-    // при Load More ми додаємо, при новому пошуку перезаписуємо (committedParams.page === 1)
-    if (committedParams && committedParams.page > 1) {
-      setVehicles((prev) => [...prev, ...items]);
+    if (!data) return;
+    const items: Vehicle[] = Array.isArray(data.items) ? data.items : [];
+
+    if (committedParams?.page && committedParams.page > 1) {
+      setVehicles([...vehicles, ...items]);
     } else {
       setVehicles(items);
     }
@@ -135,7 +136,6 @@ export default function CatalogPage() {
       setCommittedParams({ ...committedParams, page: next });
     }
   }
-
   return (
     <div className={styles.page}>
       <main className={styles["main-container"]}>
@@ -167,15 +167,12 @@ export default function CatalogPage() {
             </div>
           )}
 
-          {isError && <p>Something whent wrong</p>}
-          <div>
-            {!data?.items && (
-              <p className={styles["pattern-text"]}>
-                Please choose filters and press &quot;Search&quot; button
-              </p>
-            )}
-            {data?.items && <VehicleList vehicles={vehicles} />}
-          </div>
+          {isError && (
+            <p className={styles["pattern-text"]}>
+              There are no such cars with that filters or that location
+            </p>
+          )}
+          <div>{data?.items && <VehicleList vehicles={vehicles} />}</div>
 
           {totalPage > page && (
             <button
