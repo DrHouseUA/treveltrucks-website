@@ -9,7 +9,7 @@ export const apiClient = axios.create({
 });
 
 export interface VehicleDataResponse {
-  total: 23;
+  total: number;
   items: Vehicle[];
 }
 

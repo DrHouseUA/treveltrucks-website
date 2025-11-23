@@ -7,6 +7,7 @@ import { fetchVehicleById } from "@/lib/api/api";
 import { useQuery } from "@tanstack/react-query";
 import { Vehicle } from "@/types/vehicle";
 import Image from "next/image";
+import Loader from "../Loader/Loader";
 
 interface Props {
   id: string;
@@ -14,21 +15,23 @@ interface Props {
 
 export default function VehicleDescription({ id }: Props) {
   const [vehicle, setVehicle] = useState<Vehicle | null>(null);
-  const { data, isLoading, isError, refetch } = useQuery({
+  const { data, isLoading, isError } = useQuery({
     queryKey: ["vehicle"],
     queryFn: async () => await fetchVehicleById(id),
     refetchOnMount: false,
   });
   useEffect(() => {
-    refetch();
-    setVehicle(data as Vehicle);
-  }, [data, refetch]);
+    if (data) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setVehicle(data as Vehicle);
+    }
+  }, [data]);
 
   return (
     <div className={styles["main-content"]}>
       <div className={styles["vehicle-detail-header-wrapper"]}>
         <h2 className={styles["vehicle-card-title"]}>{vehicle?.name}</h2>
-        {isLoading && <p>Loading...</p>}
+        {isLoading && <Loader />}
         {isError && <p>Someting whent wrong...</p>}
         {vehicle && (
           <RatingInfo

@@ -1,9 +1,6 @@
+import Loader from "@/components/Loader/Loader";
 import React from "react";
 
 export default function loading() {
-  return (
-    <div>
-      <p>Loading... wait..</p>
-    </div>
-  );
+  return <Loader />;
 }
