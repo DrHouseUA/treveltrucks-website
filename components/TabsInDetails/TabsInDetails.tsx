@@ -25,10 +25,9 @@ export default function TabsInDetails({ id }: Props) {
   });
   useEffect(() => {
     refetch();
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setVehicle(data as Vehicle);
   }, [data, refetch]);
-
-  console.log(data);
 
   return (
     <>

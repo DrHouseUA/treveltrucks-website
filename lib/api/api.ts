@@ -13,7 +13,7 @@ export interface VehicleDataResponse {
   items: Vehicle[];
 }
 
-interface VehicleParams {
+export interface VehicleParams {
   search?: string;
   filter?: string;
   field_name?: string;
@@ -25,7 +25,6 @@ export const fetchVehicles = async (
   params: VehicleParams,
   options?: { queryString: string }
 ): Promise<VehicleDataResponse> => {
-  console.log(params, options);
   const response = await apiClient.get<VehicleDataResponse>(
     `/campers?${options?.queryString}`,
     {

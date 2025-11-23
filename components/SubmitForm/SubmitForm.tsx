@@ -4,8 +4,27 @@ import "react-datepicker/dist/react-datepicker.css";
 import styles from "./SubmitForm.module.css";
 import toast from "react-hot-toast";
 
-const CustomInput = forwardRef<HTMLInputElement, any>(
-  ({ value, onClick, name, placeholder, className }, ref) => (
+import { enUS } from "date-fns/locale";
+
+const customLocale = {
+  ...enUS,
+  options: { ...enUS.options, weekStartsOn: 1 }, // 1 = Monday
+  localize: {
+    ...enUS.localize,
+    day: (n: number) => ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"][n],
+  },
+};
+
+type CustomInputProps = {
+  value?: string;
+  onClick?: () => void;
+  name?: string;
+  placeholder?: string;
+  className?: string;
+} & React.InputHTMLAttributes<HTMLInputElement>;
+
+const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
+  ({ value, onClick, name, placeholder, className, ...rest }, ref) => (
     <input
       ref={ref}
       className={className}
@@ -14,26 +33,24 @@ const CustomInput = forwardRef<HTMLInputElement, any>(
       value={value ?? ""}
       onClick={onClick}
       readOnly
+      {...rest}
     />
   )
 );
 CustomInput.displayName = "CustomInput";
 
-CustomInput.displayName = "CustomInput";
-
 export default function SubmitForm() {
-  const [startDate, setStartDate] = useState<Date | null>(new Date());
+  const [startDate, setStartDate] = useState<Date | null>(null); // ✅ початково null
 
   const handleSubmit = (formData: FormData) => {
     const userName = formData.get("userName");
     const userEmail = formData.get("userEmail");
-    const userDate = formData.get("userDate");
     const userMessage = formData.get("userMessage");
 
     toast.success(
       "Your information received successfully! Thank you for choosing us!"
     );
-    console.log({ userName, userEmail, userDate, userMessage });
+    console.log({ userName, userEmail, startDate, userMessage });
   };
 
   return (
@@ -61,14 +78,17 @@ export default function SubmitForm() {
           />
 
           <DatePicker
-            placeholderText="Booking date"
-            onChange={(d) => setStartDate(d)}
+            selected={startDate}
+            onChange={(date: Date | null) => setStartDate(date)}
             dateFormat="yyyy-MM-dd"
+            minDate={new Date()} // ✅ тільки від сьогодні
+            placeholderText="Select a date between today" // ✅ плейсхолдер
+            locale={customLocale}
             customInput={
               <CustomInput
                 name="userDate"
-                placeholder="Booking date*"
-                className={styles["input-style"]}
+                placeholder="Select a date between today"
+                className={`${styles["input-style"]} ${styles.noCaret}`}
               />
             }
           />
