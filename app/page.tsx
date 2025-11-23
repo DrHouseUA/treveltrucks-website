@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import styles from "./page.module.css";
 import { useRouter } from "next/navigation";
 
@@ -25,9 +24,6 @@ export default function Home() {
             >
               View Now
             </button>
-            <Link href="/catalog" className={styles.link}>
-              Go to Catalogue Page
-            </Link>
           </div>
         </section>
       </main>

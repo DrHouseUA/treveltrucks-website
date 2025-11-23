@@ -97,7 +97,7 @@ export default function CatalogPage() {
         : Promise.resolve({ items: [], total: 0 }),
     enabled: committedParams !== null,
     refetchOnMount: true,
-    placeholderData: (prev) => prev,
+    // placeholderData: (prev) => prev,
   });
 
   const total = data?.total ?? 0;
