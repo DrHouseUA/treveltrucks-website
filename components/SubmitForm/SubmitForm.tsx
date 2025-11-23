@@ -5,10 +5,11 @@ import styles from "./SubmitForm.module.css";
 import toast from "react-hot-toast";
 
 import { enUS } from "date-fns/locale";
+import type { Locale, Day } from "date-fns";
 
-const customLocale = {
+const customLocale: Locale = {
   ...enUS,
-  options: { ...enUS.options, weekStartsOn: 1 }, // 1 = Monday
+  options: { ...enUS.options, weekStartsOn: 1 as Day }, // 1 = Monday
   localize: {
     ...enUS.localize,
     day: (n: number) => ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"][n],
