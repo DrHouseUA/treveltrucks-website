@@ -6,6 +6,9 @@
     url("/CamperVehicle.png") 2x
   );
   padding: 260px 64px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: centers;
 }
 
 .hero-title-content {
