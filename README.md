@@ -1,36 +1,127 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚚 TrevelTrucks — Modern Promo Website Built with Next.js
 
-## Getting Started
+TrevelTrucks is a fast, responsive, and cleanly architected promotional website built with **Next.js (App Router)** and deployed on **Vercel**.  
+The project focuses on performance, maintainability, and a minimalistic UI that clearly presents company services and portfolio.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## ✨ Features
+
+- **Modern Next.js App Router structure** (`app/` directory)
+- **Instant content updates** — edit `app/page.tsx` and see changes immediately
+- **Optimized typography** using **Vercel Geist Font** with automatic loading
+- **Fully typed codebase** powered by **TypeScript**
+- **Clean, modular components** stored in `components/`
+- **Responsive layout** with lightweight CSS styling
+- **Production-ready deployment** on Vercel
+
+---
+
+## 🚀 Live Demo
+
+🔗 **Production Deployment:**  
+`https://treveltrucks-website.vercel.app` [(treveltrucks-website.vercel.app in Bing)](https://www.bing.com/search?q="https%3A%2F%2Ftreveltrucks-website.vercel.app%2F")
+
+---
+
+## 🛠️ Tech Stack
+
+| Category | Technologies |
+|---------|--------------|
+| Framework | **Next.js 14+ (App Router)** |
+| Language | **TypeScript** |
+| UI | CSS Modules |
+| State / Data | React, Zustand, React Query (planned/partial) |
+| Deployment | Vercel |
+| Tooling | ESLint, Prettier, tsconfig paths |
+
+---
+
+## 📁 Project Structure
+
+```
+treveltrucks-website/
+│
+├── app/                # App Router pages & layout
+│   ├── page.tsx        # Main landing page
+│   └── globals.css     # Global styles
+│
+├── components/         # Reusable UI components
+├── lib/                # Utilities, helpers
+├── public/             # Static assets
+├── types/              # TypeScript types
+│
+├── next.config.ts      # Next.js configuration
+├── package.json
+└── tsconfig.json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ⚙️ Installation & Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### **Prerequisites**
+- Node.js **18+**
+- Package manager: **npm**, **yarn**, **pnpm**, or **bun**
 
-## Learn More
+### **Clone the repository**
+```bash
+git clone https://github.com/DrHouseUA/treveltrucks-website.git
+cd treveltrucks-website
+```
 
-To learn more about Next.js, take a look at the following resources:
+### **Install dependencies**
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+# or
+bun install
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### **Run the development server**
+```bash
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Your app will be available at:  
+**http://localhost:3000**
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📦 Build for Production
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run build
+npm start
+```
+
+---
+
+## 🤝 Contributing
+
+Contributions, improvements, and suggestions are welcome!
+
+1. Fork the repository  
+2. Create a new branch: `git checkout -b feature/my-feature`  
+3. Commit your changes: `git commit -m "Add new feature"`  
+4. Push the branch: `git push origin feature/my-feature`  
+5. Open a Pull Request  
+
+---
+
+## 📄 License
+
+This project currently does not specify a license.  
+If you plan to open-source it, consider adding MIT, Apache 2.0, or GPL.
+
+---
+
+## 👤 Author
+
+**Roman (DrHouseUA)**  
+Technical Architect • Workflow Strategist • Full‑Stack Developer  
+📧 **romanknyazhyk@gmail.com**
+
