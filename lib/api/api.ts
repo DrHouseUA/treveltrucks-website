@@ -23,13 +23,13 @@ export interface VehicleParams {
 
 export const fetchVehicles = async (
   params: VehicleParams,
-  options?: { queryString: string }
+  options?: { queryString: string },
 ): Promise<VehicleDataResponse> => {
   const response = await apiClient.get<VehicleDataResponse>(
     `/campers?${options?.queryString}`,
     {
       params,
-    }
+    },
   );
   return response.data;
 };
